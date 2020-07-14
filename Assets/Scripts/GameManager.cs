@@ -1,0 +1,66 @@
+﻿using System.Collections.Generic;
+using System.Linq;
+using UnityEngine;
+
+public class GameManager : MonoBehaviour
+{
+    public static GameManager Instance;
+
+    public DeliveryPanel DeliveryPanel;
+
+    public List<City> Cities;
+    [HideInInspector]
+    public Delivery CurrentDelivery;
+
+    public GameObject CurrentCarPrefab;
+
+    private void Awake()
+    {
+        if (Instance != null)
+        {
+            Destroy(gameObject);
+        }
+
+        Instance = this;
+    }
+
+    private void Start()
+    {
+        Cities = FindObjectsOfType<City>().ToList();
+        if (Cities.Count < 2)
+        {
+            Debug.LogError("Not enough cities!");
+        }
+
+        GenerateDelivery();
+    }
+
+    public void GenerateDelivery()
+    {
+        var CurrentCity = Cities[Random.Range(0, Cities.Count)];
+        CurrentCity.ShowDelivery();
+
+        var DestinationCity = CurrentCity;
+        while (DestinationCity == CurrentCity)
+        {
+            DestinationCity = Cities[Random.Range(0, Cities.Count)];
+        }
+
+        CurrentDelivery = new Delivery(CurrentCity, DestinationCity);
+    }
+
+    public void OnDeliveryShow()
+    {
+        //DeliveryPanel.gameObject.SetActive(true);
+        OnDeliveryApprove();
+    }
+
+    /// <summary>
+    /// Delivery shown, start to create route
+    /// </summary>
+    public void OnDeliveryApprove()
+    {
+        Debug.Log(CurrentDelivery);
+        RouteManager.Instance.OnStartRouteCreate(CurrentDelivery.APoint, CurrentDelivery.BPoint);
+    }
+}

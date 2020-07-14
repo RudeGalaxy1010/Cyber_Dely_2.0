@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class Car : MonoBehaviour
 {
+    public string Name = "Car";
+    public string Description;
+    public Sprite PreviewSprite;
+
+
     public float Speed = 10f;
     public List<Transform> Route = new List<Transform>();
 
@@ -52,5 +57,12 @@ public class Car : MonoBehaviour
                 }
             }
         }
+
+        transform.LookAt(NextPoint);
+    }
+
+    public override string ToString()
+    {
+        return Name;
     }
 }

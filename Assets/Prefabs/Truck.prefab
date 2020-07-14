@@ -58,6 +58,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3fad33d845bb83441a06455e259f7bb2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Name: Truck
+  Description: Heavy. Spacious. Suspicious
+  PreviewSprite: {fileID: 21300000, guid: 26fc39a4227c2364eb3b1392e2bedff2, type: 3}
   Speed: 0.5
   Route: []
 --- !u!1 &6833282449215591977

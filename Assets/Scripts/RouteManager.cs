@@ -2,7 +2,6 @@
 using System.Linq;
 using UnityEngine;
 
-
 /// <summary>
 /// TODO fix bug with car moving by grass (update check not only by x and z)
 /// </summary>
@@ -46,15 +45,13 @@ public class RouteManager : MonoBehaviour
         {
             Destroy(CurrentCar.gameObject);
             CurrentCar = null;
+            GameManager.Instance.GenerateDelivery();
             return;
         }
 
         Route = new List<Transform>();
         Markers = new List<GameObject>();
         isRouteEdit = true;
-
-        ///Spawn end marker
-        Markers.Add(Instantiate(EndMarkerPrefab, destinationPoint.transform.position + Vector3.up * EndMarkerHeight, Quaternion.identity));
 
         ///add first point
         AddPoint(startPoint.transform);
@@ -84,6 +81,41 @@ public class RouteManager : MonoBehaviour
                 {
                     return;
                 }
+                ///TODO solve problem with rotations
+                //if (Route.Count > 1)
+                //{
+                //    var deltaX = Route[Route.Count - 2].right - lastPoint.right;
+                //    var deltaZ = Route[Route.Count - 2].forward - lastPoint.forward;
+                //    Debug.Log(deltaX + " " + deltaZ);
+                //    if (deltaX.x > 0)
+                //    {
+                //        if (point.GetComponent<RouteEditable>().Right == Exit.no)
+                //        {
+                //            return;
+                //        }
+                //    }
+                //    else if (deltaX.x < 0)
+                //    {
+                //        if (point.GetComponent<RouteEditable>().Left == Exit.no)
+                //        {
+                //            return;
+                //        }
+                //    }
+                //    else if (deltaZ.z > 0)
+                //    {
+                //        if (point.GetComponent<RouteEditable>().Forward == Exit.no)
+                //        {
+                //            return;
+                //        }
+                //    }
+                //    else
+                //    {
+                //        if (point.GetComponent<RouteEditable>().Backward == Exit.no)
+                //        {
+                //            return;
+                //        }
+                //    }
+                //}
             }
 
             ///add new point
@@ -94,6 +126,12 @@ public class RouteManager : MonoBehaviour
     private void AddPoint(Transform point)
     {
         Route.Add(point);
+        if (Markers.Count == 0)
+        {
+            ///Spawn end marker
+            var position = GameManager.Instance.CurrentDelivery.BPoint.transform.position + Vector3.up * EndMarkerHeight;
+            Markers.Add(Instantiate(EndMarkerPrefab, position, Quaternion.identity));
+        }
         Markers.Add(Instantiate(MarkerPrefab, point.position + Vector3.up * MarkersHeight, Quaternion.identity));
     }
 

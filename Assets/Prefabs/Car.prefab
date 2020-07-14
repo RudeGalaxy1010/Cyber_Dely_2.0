@@ -45,6 +45,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3fad33d845bb83441a06455e259f7bb2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Name: Sedan
+  Description: Small. Fast. Light
+  PreviewSprite: {fileID: 21300000, guid: 458d413dcdaf75a41b21708838848d91, type: 3}
   Speed: 1
   Route: []
 --- !u!65 &7216362002106045442

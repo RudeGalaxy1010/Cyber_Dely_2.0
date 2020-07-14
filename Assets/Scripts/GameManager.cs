@@ -57,8 +57,8 @@ public class GameManager : MonoBehaviour
     /// </summary>
     public void OnDeliveryShow()
     {
+        DeliveryPanel.SetValues(CurrentDelivery);
         DeliveryPanel.gameObject.SetActive(true);
-        Debug.Log(CurrentDelivery);
         RouteManager.Instance.OnStartRouteCreate(CurrentDelivery.APoint, CurrentDelivery.BPoint);
     }
 }

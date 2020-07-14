@@ -2,9 +2,7 @@
 
 public class Delivery : MonoBehaviour
 {
-    /// <summary>
-    /// TODO more fields
-    /// </summary>
+    public string PackageName;
     public City APoint, BPoint;
 
     public Delivery(City aPoint, City bPoint)

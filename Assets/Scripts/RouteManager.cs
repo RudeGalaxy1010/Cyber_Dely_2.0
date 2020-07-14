@@ -1,14 +1,19 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
-using UnityEngine.Timeline;
 
+
+/// <summary>
+/// TODO fix bug with car moving by grass (update check not only by x and z)
+/// </summary>
 public class RouteManager : MonoBehaviour
 {
     public static RouteManager Instance;
     public static bool isRouteEdit = false;
 
     public GameObject MarkerPrefab;
+    public GameObject EndMarkerPrefab;
+    public float EndMarkerHeight = 4f;
     public float MarkersHeight = 2f;
     public GameObject RouteReadyButton;
 
@@ -46,8 +51,13 @@ public class RouteManager : MonoBehaviour
 
         Route = new List<Transform>();
         Markers = new List<GameObject>();
-        AddPoint(startPoint.transform);
         isRouteEdit = true;
+
+        ///Spawn end marker
+        Markers.Add(Instantiate(EndMarkerPrefab, destinationPoint.transform.position + Vector3.up * EndMarkerHeight, Quaternion.identity));
+
+        ///add first point
+        AddPoint(startPoint.transform);
 
         RouteReadyButton.SetActive(true);
     }
@@ -85,6 +95,11 @@ public class RouteManager : MonoBehaviour
     {
         Route.Add(point);
         Markers.Add(Instantiate(MarkerPrefab, point.position + Vector3.up * MarkersHeight, Quaternion.identity));
+    }
+
+    public void OnRouteCancel()
+    {
+        OnRouteEnd();
     }
 
     public List<Transform> OnRouteEnd()

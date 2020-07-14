@@ -31,7 +31,6 @@ public class City : MonoBehaviour
     public void OnDeliveryView()
     {
         BillBoard.SetActive(false);
-        ///TODO Г-road
         GameManager.Instance.OnDeliveryShow();
     }
 

@@ -26,6 +26,9 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+        ///initialize UI
+        DeliveryPanel.gameObject.SetActive(false);
+
         Cities = FindObjectsOfType<City>().ToList();
         if (Cities.Count < 2)
         {
@@ -49,17 +52,12 @@ public class GameManager : MonoBehaviour
         CurrentDelivery = new Delivery(CurrentCity, DestinationCity);
     }
 
+    /// <summary>
+    /// Show Delivery panel
+    /// </summary>
     public void OnDeliveryShow()
     {
-        //DeliveryPanel.gameObject.SetActive(true);
-        OnDeliveryApprove();
-    }
-
-    /// <summary>
-    /// Delivery shown, start to create route
-    /// </summary>
-    public void OnDeliveryApprove()
-    {
+        DeliveryPanel.gameObject.SetActive(true);
         Debug.Log(CurrentDelivery);
         RouteManager.Instance.OnStartRouteCreate(CurrentDelivery.APoint, CurrentDelivery.BPoint);
     }

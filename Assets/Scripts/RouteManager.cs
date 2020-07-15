@@ -81,41 +81,41 @@ public class RouteManager : MonoBehaviour
                 {
                     return;
                 }
-                ///TODO solve problem with rotations
-                //if (Route.Count > 1)
-                //{
-                //    var deltaX = Route[Route.Count - 2].right - lastPoint.right;
-                //    var deltaZ = Route[Route.Count - 2].forward - lastPoint.forward;
-                //    Debug.Log(deltaX + " " + deltaZ);
-                //    if (deltaX.x > 0)
-                //    {
-                //        if (point.GetComponent<RouteEditable>().Right == Exit.no)
-                //        {
-                //            return;
-                //        }
-                //    }
-                //    else if (deltaX.x < 0)
-                //    {
-                //        if (point.GetComponent<RouteEditable>().Left == Exit.no)
-                //        {
-                //            return;
-                //        }
-                //    }
-                //    else if (deltaZ.z > 0)
-                //    {
-                //        if (point.GetComponent<RouteEditable>().Forward == Exit.no)
-                //        {
-                //            return;
-                //        }
-                //    }
-                //    else
-                //    {
-                //        if (point.GetComponent<RouteEditable>().Backward == Exit.no)
-                //        {
-                //            return;
-                //        }
-                //    }
-                //}
+                ///TODO solve problem with rotations!!!
+                if (Route.Count > 1)
+                {
+                    var deltaX = lastPoint.position.x - point.position.x;
+                    var deltaZ = lastPoint.position.z - point.position.z;
+                    Debug.Log(deltaX + " " + deltaZ);
+                    if (deltaX > 0)
+                    {
+                        if (point.GetComponent<RouteEditable>().Right == Exit.no)
+                        {
+                            return;
+                        }
+                    }
+                    else if (deltaX < 0)
+                    {
+                        if (point.GetComponent<RouteEditable>().Left == Exit.no)
+                        {
+                            return;
+                        }
+                    }
+                    else if (deltaZ > 0)
+                    {
+                        if (point.GetComponent<RouteEditable>().Forward == Exit.no)
+                        {
+                            return;
+                        }
+                    }
+                    else
+                    {
+                        if (point.GetComponent<RouteEditable>().Backward == Exit.no)
+                        {
+                            return;
+                        }
+                    }
+                }
             }
 
             ///add new point

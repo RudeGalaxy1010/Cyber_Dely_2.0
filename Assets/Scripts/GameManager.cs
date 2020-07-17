@@ -2,6 +2,9 @@
 using System.Linq;
 using UnityEngine;
 
+/// <summary>
+/// TODO ROADS AND ROUTES!!!
+/// </summary>
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;

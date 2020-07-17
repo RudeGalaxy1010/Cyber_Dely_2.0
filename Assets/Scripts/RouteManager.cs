@@ -81,6 +81,7 @@ public class RouteManager : MonoBehaviour
                 {
                     return;
                 }
+<<<<<<< HEAD
                 if (Route.Count > 1)
                 {
                     var maxDelta = Vector3.Distance(lastPoint.position, point.transform.position);
@@ -98,6 +99,42 @@ public class RouteManager : MonoBehaviour
                         }
                     }
                     return;
+=======
+                ///TODO solve problem with rotations!!!
+                if (Route.Count > 1)
+                {
+                    var deltaX = lastPoint.position.x - point.position.x;
+                    var deltaZ = lastPoint.position.z - point.position.z;
+                    Debug.Log(deltaX + " " + deltaZ);
+                    if (deltaX > 0)
+                    {
+                        if (point.GetComponent<RouteEditable>().Right == Exit.no)
+                        {
+                            return;
+                        }
+                    }
+                    else if (deltaX < 0)
+                    {
+                        if (point.GetComponent<RouteEditable>().Left == Exit.no)
+                        {
+                            return;
+                        }
+                    }
+                    else if (deltaZ > 0)
+                    {
+                        if (point.GetComponent<RouteEditable>().Forward == Exit.no)
+                        {
+                            return;
+                        }
+                    }
+                    else
+                    {
+                        if (point.GetComponent<RouteEditable>().Backward == Exit.no)
+                        {
+                            return;
+                        }
+                    }
+>>>>>>> f9f5d78a3a28d091d67ee0651184ba15b53c43da
                 }
             }
 

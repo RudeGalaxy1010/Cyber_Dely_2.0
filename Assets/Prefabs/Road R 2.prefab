@@ -1,35 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &740775807751554221
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 8808975421358754211}
-  m_Layer: 0
-  m_Name: Exit Anchor
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &8808975421358754211
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 740775807751554221}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0.5}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1017613382085849311}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1017613382085849308
 GameObject:
   m_ObjectHideFlags: 0
@@ -42,7 +12,7 @@ GameObject:
   - component: {fileID: 8049473797048504208}
   - component: {fileID: 3433821315027059807}
   m_Layer: 0
-  m_Name: Road R
+  m_Name: Road R 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -60,8 +30,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 5433026925572445955}
-  - {fileID: 8808975421358754211}
-  - {fileID: 750878462069550634}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -90,46 +58,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ad0675296694d4459b0b093d290be58, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-<<<<<<< HEAD
-  ExitAnchors:
-  - {fileID: 8808975421358754211}
-  - {fileID: 750878462069550634}
---- !u!1 &3011805658801451904
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 750878462069550634}
-  m_Layer: 0
-  m_Name: Exit Anchor (1)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &750878462069550634
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3011805658801451904}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.5, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1017613382085849311}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-=======
-  Forward: 1
-  Backward: 0
-  Right: 1
-  Left: 0
->>>>>>> f9f5d78a3a28d091d67ee0651184ba15b53c43da
+  Forward: 0
+  Backward: 1
+  Right: 0
+  Left: 1
 --- !u!1001 &1017613381323553817
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -165,12 +97,12 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: f6bf5e52fc0713443914493aefc072f5,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: f6bf5e52fc0713443914493aefc072f5,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: -0.7071068
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: f6bf5e52fc0713443914493aefc072f5,
         type: 3}
@@ -185,7 +117,7 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: f6bf5e52fc0713443914493aefc072f5,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 270
+      value: 90
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: f6bf5e52fc0713443914493aefc072f5,
         type: 3}

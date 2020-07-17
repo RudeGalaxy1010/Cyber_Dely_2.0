@@ -1,9 +1,10 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 
 [RequireComponent(typeof(Collider))]
 public class RouteEditable : MonoBehaviour
 {
-    public Exit Forward, Backward, Right, Left;
+    public List<Transform> ExitAnchors = new List<Transform>(4);
 
     private void OnMouseDown()
     {
@@ -12,10 +13,4 @@ public class RouteEditable : MonoBehaviour
             RouteManager.Instance.OnEditPoint(transform);
         }
     }
-}
-
-public enum Exit 
-{
-    no,
-    yes
 }

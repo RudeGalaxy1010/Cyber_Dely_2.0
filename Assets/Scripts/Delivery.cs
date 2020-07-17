@@ -1,6 +1,4 @@
-﻿using UnityEngine;
-
-public class Delivery : MonoBehaviour
+﻿public class Delivery
 {
     public string PackageName;
     public City APoint, BPoint;

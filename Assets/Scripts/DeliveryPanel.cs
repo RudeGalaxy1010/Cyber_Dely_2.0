@@ -12,6 +12,26 @@ public class DeliveryPanel : MonoBehaviour
     public List<Car> CarPrefabs = new List<Car>();
     public Car CurrentCarPrefab;
 
+    #region Camera Callbacks
+
+    private CameraControl MainCam;
+
+    private void Awake()
+    {
+        MainCam = FindObjectOfType<CameraControl>();
+    }
+
+    private void OnEnable()
+    {
+        MainCam.canMove = false;
+    }
+
+    private void OnDisable()
+    {
+        MainCam.canMove = true;
+    }
+    #endregion
+
     public void SetValues(Delivery delivery)
     {
         CityA_Text.text = delivery.APoint.ToString();
@@ -21,6 +41,7 @@ public class DeliveryPanel : MonoBehaviour
         ///TODO get description
         PackageDescription_Text.text = "description";
 
+        CurrentCarPrefab = null;
         OnSwitchCar(true);
     }
 
@@ -30,28 +51,27 @@ public class DeliveryPanel : MonoBehaviour
         if (CurrentCarPrefab != null)
         {
             index = CarPrefabs.IndexOf(CurrentCarPrefab);
-        }
-
-        if (isNext)
-        {
-            if (index == CarPrefabs.Count - 1)
+            if (isNext)
             {
-                index = 0;
+                if (index == CarPrefabs.Count - 1)
+                {
+                    index = 0;
+                }
+                else
+                {
+                    index++;
+                }
             }
             else
             {
-                index++;
-            }
-        }
-        else
-        {
-            if (index == 0)
-            {
-                index = CarPrefabs.Count - 1;
-            }
-            else
-            {
-                index--;
+                if (index == 0)
+                {
+                    index = CarPrefabs.Count - 1;
+                }
+                else
+                {
+                    index--;
+                }
             }
         }
 

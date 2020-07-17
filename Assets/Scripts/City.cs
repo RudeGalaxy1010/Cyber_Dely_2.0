@@ -30,7 +30,7 @@ public class City : MonoBehaviour
 
     public void OnDeliveryView()
     {
-        BillBoard.SetActive(false);
+        DeliveryView.SetActive(false);
         GameManager.Instance.OnDeliveryShow();
     }
 

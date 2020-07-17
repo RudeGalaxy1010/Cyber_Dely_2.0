@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class CameraControl : MonoBehaviour
 {
@@ -55,11 +53,23 @@ public class CameraControl : MonoBehaviour
             }
         }
 
-        if (Input.GetKey(KeyCode.Q))
+        float MouseX = 0;
+
+        if (Input.GetKey(KeyCode.Mouse2))
+        {
+            MouseX = Input.mousePosition.x - Screen.width/2;
+            Debug.Log(MouseX);
+        }
+        else
+        {
+            MouseX = 0;
+        }
+
+        if (Input.GetKey(KeyCode.Q) || MouseX < -20)
         {
             newRotation *= Quaternion.Euler(Vector3.up * rotationAmount);
         }
-        if (Input.GetKey(KeyCode.E))
+        if (Input.GetKey(KeyCode.E) || MouseX > 20)
         {
             newRotation *= Quaternion.Euler(Vector3.up * -rotationAmount);
         }

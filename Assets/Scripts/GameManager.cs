@@ -61,4 +61,10 @@ public class GameManager : MonoBehaviour
         DeliveryPanel.gameObject.SetActive(true);
         RouteManager.Instance.OnStartRouteCreate(CurrentDelivery.APoint, CurrentDelivery.BPoint);
     }
+
+    public void OnDeliveryCancel()
+    {
+        DeliveryPanel.gameObject.SetActive(false);
+        RouteManager.Instance.OnRouteCancel();
+    }
 }
